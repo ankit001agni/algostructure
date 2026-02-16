@@ -13,3 +13,7 @@ def rsi(series, period=14):
 def vwap(df):
     pv = (df['close'] * df['volume']).cumsum()
     return pv / df['volume'].cumsum()
+
+def macd(series):
+    macdline=series.ewm(span=9).mean()
+    return macdline
